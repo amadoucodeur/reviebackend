@@ -27,14 +27,14 @@ class Article(models.Model):
     seller = models.ForeignKey(CustomeUser, related_name="articles", on_delete=models.CASCADE)
     price = models.IntegerField()
     QUALITY_CHOICES = [(1,"1/3"),(2,"2/3"),(3,"3/3")]
-    qualite = models.IntegerField(choices=QUALITY_CHOICES)
+    quality = models.IntegerField(choices=QUALITY_CHOICES)
     category = models.ManyToManyField(Category, related_name='category')
 
     def __str__(self):
         return self.name
 
 
-class Image(models.Model):
+class ImageArticle(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to='articles_images/')
 
