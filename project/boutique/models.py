@@ -8,6 +8,7 @@ class CustomeUser(AbstractUser):
     bio = models.TextField(blank=True)
     address = models.CharField(max_length=200, blank=True)
     email = models.EmailField(unique=True)
+    keywords = models.TextField(blank=True)
 
     def __str__(self):
         return self.name
