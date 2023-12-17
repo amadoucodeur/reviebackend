@@ -3,7 +3,8 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomeUser(AbstractUser):
-    phone_number = models.CharField(blank=True, null=True)
+    name = models.CharField(max_length=225, default='revie')
+    phone_number = models.CharField(max_length=15,blank=True, null=True)
     avatar = models.ImageField(upload_to='profile_images/' ,blank=True, null=True)
     bio = models.TextField(blank=True)
     address = models.CharField(max_length=200, blank=True)
