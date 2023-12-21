@@ -1,5 +1,5 @@
 from rest_framework import routers
-from .views import ArticleViewset, CayegoryViewset
+from .views import ArticleViewset, CayegoryViewset, LoginView
 from django.urls import path, include
 
 
@@ -10,5 +10,6 @@ router.register('category',CayegoryViewset, basename='category')
 
 
 urlpatterns = [
-    path('',include(router.urls))
+    path('',include(router.urls)),
+    path('login/',LoginView.as_view(), name='loginn'),
 ]
