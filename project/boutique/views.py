@@ -38,10 +38,11 @@ class LoginView(APIView):
 
     def post(self, request, *args, **kwargs):
         form = AuthenticationForm(data=request.data)
+        print(request.data)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return Response({"detail": "Connexion réussie"}, status=status.HTTP_200_OK)
+            return Response({"detail": "Connexion réussie"}, status=200)
         else:
             return Response(form.errors, status=status.HTTP_401_UNAUTHORIZED)
 
